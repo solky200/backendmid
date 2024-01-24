@@ -1,4 +1,4 @@
-package com.example.demojpamvc1.config;
+package com.example.testbackendmid.config;
 
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;

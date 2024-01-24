@@ -1,10 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <style>
+        table th, table td {padding: 5px;}
+    </style>
 </head>
 <body>
-$END$
+<h1>Products List</h1>
+<form action="/products/search">
+    <input type="text" placeholder="Search with name" name="keyword"> <button>Search</button>
+</form>
+<table border="1">
+    <tr>
+        <td>#</td>
+        <td>Name</td>
+        <td>Code</td>
+        <td>Price</td>
+        <td>Actions</td>
+    </tr>
+    <tr th:each="item : ${list}">
+        <td th:text="${item.id}">ID</td>
+        <td ><a th:text="${item.name}" th:href="@{/products/info/__${item.id}__}"></a></td>
+        <td th:text="${item.code}"></td>
+        <td th:text="${item.price}"></td>
+        <td><a th:href="@{/products/edit/__${item.id}__}">Edit</a></td>
+        <td><a th:href="@{/products/delete/__${item.id}__}">Delete</a></td>
+    </tr>
+</table>
+
+<button><a th:href="@{products/add}">Add Product</a></button>
+
 </body>
 </html>

@@ -1,4 +1,4 @@
-package com.example.demojpamvc1.config;
+package com.example.testbackendmid.config;
 
 
 
@@ -19,7 +19,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.spring5.SpringTemplateEngine;
@@ -35,8 +34,8 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@ComponentScan("com.example.demojpamvc1")
-@EnableJpaRepositories("com.example.demojpamvc1.repository")
+@ComponentScan("com.example.testbackendmid")
+@EnableJpaRepositories("com.example.testbackendmid.repository")
 public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAware {
 
     private ApplicationContext applicationContext;
@@ -84,7 +83,7 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("com.example.demojpamvc1.model");
+        em.setPackagesToScan("com.example.testbackendmid.model");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -96,7 +95,7 @@ public class AppConfiguration implements WebMvcConfigurer, ApplicationContextAwa
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/demo2812");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/testproducts2401");
         dataSource.setUsername("root");
         dataSource.setPassword("thanghai");
         return dataSource;

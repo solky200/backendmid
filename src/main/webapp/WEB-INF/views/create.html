@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>$Title$</title>
+  <title>Create</title>
 </head>
 <body>
-$END$
+
+
+<form action="/products/add" method="post">
+  <table>
+    <tr>
+      <td><label>Name: </label></td>
+      <td><input type="text" name="name"></td>
+    </tr>
+    <tr>
+      <td><label>Code: </label></td>
+      <td><input type="text" name="code"></td>
+    </tr>
+    <tr>
+      <td><label>Description: </label></td>
+      <td><input type="text" name="description"></td>
+    </tr>
+    <tr>
+      <td><label>Price: </label></td>
+      <td><input type="text" name="price"></td>
+    </tr>
+    <tr>
+      <td><label>Date: </label></td>
+      <td><input type="text" name="date"></td>
+    </tr>
+
+
+  </table>
+  <button>Add</button>
+</form>
+<button><a th:href="@{/products}">Exit</a></button>
+
 </body>
 </html>
